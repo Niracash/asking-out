@@ -2,10 +2,10 @@
     import { onMount } from 'svelte';
 
     const gifs: string[] = [
-        '/bubu-dudu-heart.gif',
-        '/fake-act.gif',       // First GIF
-        '/cute-lovely.gif',    // Second GIF
-        '/cry-sad.gif',        // Third GIF
+        './bubu-dudu-heart.gif',
+        './fake-act.gif',       // First GIF
+        './cute-lovely.gif',    // Second GIF
+        './cry-sad.gif',        // Third GIF
     ];
 
     const messages: string[] = [
@@ -147,7 +147,7 @@
     </footer>
 
     <audio loop>
-        <source src="/piano.mp3" type="audio/mpeg" />
+        <source src="./piano.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
     </audio>
 </div>
