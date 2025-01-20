@@ -35,7 +35,7 @@
     });
 
     function handleYes(): void {
-        gif = '/loveee.gif';
+        gif = './loveee.gif';
         message = 'Hehe, I love you!';
         showNoButton = false;
     }
