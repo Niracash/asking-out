@@ -26,15 +26,25 @@
     let volume: number = 1.0;
 
     let audio: HTMLAudioElement | null = null;
+    let clickAudio: HTMLAudioElement | null = null;
 
     onMount(() => {
         audio = document.querySelector('audio');
+        clickAudio = new Audio('./click.mp3'); // Load the click sound
         if (audio) {
             audio.volume = volume;
         }
     });
 
+    function playClickSound(): void {
+        if (clickAudio) {
+            clickAudio.currentTime = 0; // Reset the audio to start
+            clickAudio.play();
+        }
+    }
+
     function handleYes(): void {
+        playClickSound(); // Play sound when Yes is clicked
         gif = './loveee.gif';
         message = 'Hehe, I love you!';
         showNoButton = false;
@@ -42,6 +52,7 @@
 
     function handleNo(): void {
         if (currentStage < gifs.length - 1) {
+            playClickSound(); // Play sound when No is clicked
             currentStage++;
             gif = gifs[currentStage];
             message = messages[currentStage];
@@ -115,7 +126,6 @@
                 </button>
             {/if}
         </div>
-
     </div>
 
     <footer class="mt-auto py-4 text-center text-white text-lg flex flex-col items-center">
