@@ -163,12 +163,12 @@
 </div>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
     :global(body) {
         margin: 0;
         padding: 0;
-        font-family: 'Quicksand', sans-serif;
+        font-family: 'Poppins', sans-serif;
     }
 
     .shadow-text {
