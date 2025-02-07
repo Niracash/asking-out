@@ -3,6 +3,7 @@ name: Build and Deploy to Pages
 on:
   push:
     branches: ["main"]
+
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -21,16 +22,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4  # Updated to v4
-      - uses: actions/configure-pages@v4  # Updated to v4
+      - uses: actions/checkout@v3
+      - uses: actions/configure-pages@v3
         id: pages
-      - uses: actions/setup-node@v4  # Updated to v4
+      - uses: actions/setup-node@v3
         with:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2  # Updated to v2
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./build
 
@@ -41,5 +42,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/deploy-pages@v2  # Updated to v2
+      - uses: actions/deploy-pages@v1
         id: deployment
