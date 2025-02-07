@@ -26,7 +26,7 @@ jobs:
       # 2) Set up Node
       - uses: actions/setup-node@v4
         with:
-          node-version: 16  # or another Node version you need
+          node-version: 20  # or another Node version you need
           cache: npm        # speeds up `npm ci` by caching
 
       # 3) Install dependencies and build
