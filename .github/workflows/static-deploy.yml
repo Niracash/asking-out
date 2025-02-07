@@ -17,22 +17,24 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
+      # Always use the latest actions@v4 where possible
       - uses: actions/checkout@v4
+
+      # Configure Pages (v4) – ensures we have the correct pages deployment settings
       - uses: actions/configure-pages@v4
         id: pages
+
       - uses: actions/setup-node@v4
         with:
-          cache: 'npm'
+          node-version: 16  # or whichever version you need
+          cache: npm
+
       - run: npm ci
       - run: npm run build
-      - name: Upload artifact (force v4)
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-artifact
-          path: ./build
-      - name: Upload pages artifact
+
+      # Upload your build output using the newest upload-pages-artifact@v2
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: ./build
@@ -44,5 +46,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # Deploy with the new deploy-pages@v2
       - uses: actions/deploy-pages@v2
         id: deployment
